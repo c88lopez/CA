@@ -43,3 +43,12 @@ myImplica (_, _) = True
 myEquivalente :: (Bool, Bool) -> Bool
 myEquivalente (True, y) = y
 myEquivalente (_, y) = myNot(y)
+
+-- Ej 5
+mySumaComplejo :: ((Int, Int), (Int, Int)) -> (Int, Int)
+mySumaComplejo ((n1, i1), (n2, i2)) = ((n1 + n2), (i1 + i2))
+
+myMultComplejo :: ((Int, Int), (Int, Int)) -> (Int, Int)
+myMultComplejo ((n1, i1), (n2, i2)) = (
+    (n1 * n2) - (i1 * i2), 
+    (n1*i2) + (i1 * n2))
