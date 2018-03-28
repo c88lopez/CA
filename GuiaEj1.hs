@@ -52,3 +52,11 @@ myMultComplejo :: ((Int, Int), (Int, Int)) -> (Int, Int)
 myMultComplejo ((n1, i1), (n2, i2)) = (
     (n1 * n2) - (i1 * i2), 
     (n1*i2) + (i1 * n2))
+
+-- Ej adicional, maximo comun divisor
+myMaxComDiv :: (Int, Int) -> Int
+myMaxComDiv (m, n) = if (m==n) 
+    then m 
+    else if (m>n) 
+        then myMaxComDiv(m-n, n) 
+        else myMaxComDiv(m, n-m)
