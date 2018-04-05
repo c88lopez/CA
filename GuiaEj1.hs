@@ -52,3 +52,18 @@ myMultComplejo :: ((Int, Int), (Int, Int)) -> (Int, Int)
 myMultComplejo ((n1, i1), (n2, i2)) = (
     (n1 * n2) - (i1 * i2), 
     (n1*i2) + (i1 * n2))
+
+-- Ej 6
+
+
+-- Ej 7
+myFib :: Int -> Int
+myFib 0 = 0
+myFib 1 = 1
+myFib x = myFib(x-1) + myFib(x-2)
+
+-- Ej 8
+myEsPar :: Int -> Bool
+myEsPar 0 = True
+myEsPar 1 = False
+myEsPar x = not (myEsPar(x-1))
