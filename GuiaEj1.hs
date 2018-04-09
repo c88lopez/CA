@@ -66,4 +66,28 @@ myFib x = myFib(x-1) + myFib(x-2)
 myEsPar :: Int -> Bool
 myEsPar 0 = True
 myEsPar 1 = False
-myEsPar x = not (myEsPar(x-1))
+myEsPar x = not(myEsPar(x-1))
+
+-- Ej 9
+myEsDivPor :: (Int, Int) -> Bool
+myEsDivPor (_, 0) = False
+myEsDivPor (0, _) = True
+myEsDivPor (x, y) = 
+    if x == y 
+        then True
+        else if x < y 
+            then False
+            else myEsDivPor(x-y, y)
+                        
+
+-- Ej 10
+myEsDivPorAlguno :: (Int, Int) -> Bool
+myEsDivPorAlguno (_, 1) = True
+myEsDivPorAlguno (0, _) = True
+myEsDivPorAlguno (x, y) = 
+    if x
+
+myEsPrimo :: Int -> Bool
+myEsPrimo 1 = False
+myEsPrimo x = not(myEsDivPorAlguno(2, x-1))
+    
