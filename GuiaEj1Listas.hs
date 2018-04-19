@@ -42,3 +42,10 @@ myTerm (i, x:y) = myTerm (i-1, y)
 myRev :: ([a]) -> [a]
 myRev [] = []
 myRev (x:y) = myAppend(myRev(y), x:[])
+
+-- Ej 4
+myDesdeHasta :: (Int, Int) -> [Int]
+myDesdeHasta (min, max) =
+    if min <= max
+        then min:myDesdeHasta(min+1, max)
+        else []
