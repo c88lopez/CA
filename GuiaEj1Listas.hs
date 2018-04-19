@@ -77,3 +77,19 @@ myCapicua (x:y) =
     if x == myUltimo (y)
         then myCapicua(myTodosMenosUltimo(y))
         else False
+
+-- Ej 8
+myIntXor :: (Int, Int) -> Int
+myIntXor (1, 1) = 0
+myIntXor (x, y) = if x == 1 || y == 1 then 1 else 0
+
+myXorl :: ([Int], [Int]) -> [Int]
+myXorl (z, []) = z
+myXorl ([], z) = z
+myXorl (x, y) = 
+    myAppend(
+        myXorl(
+            myTodosMenosUltimo(x), myTodosMenosUltimo(y)
+        ), 
+        myIntXor(myUltimo(x), myUltimo(y)):[]
+    )
