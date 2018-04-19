@@ -49,3 +49,31 @@ myDesdeHasta (min, max) =
     if min <= max
         then min:myDesdeHasta(min+1, max)
         else []
+
+-- Ej 5
+myProducto :: [Int] -> Int
+myProducto [] = 1
+myProducto (x:y) = x * myProducto (y)
+
+myFactorialListas :: Int -> Int
+myFactorialListas x = myProducto(myDesdeHasta(1, x))
+
+-- Ej 6
+--- i
+myUltimo :: [a] -> a
+myUltimo (x:[]) = x
+myUltimo (_:y) = myUltimo(y)
+
+--- ii
+myTodosMenosUltimo :: [a] -> [a]
+myTodosMenosUltimo (x:[]) = []
+myTodosMenosUltimo (x:y) = x:(myTodosMenosUltimo(y))
+
+-- Ej 7
+myCapicua :: [Char] -> Bool
+myCapicua [] = True
+myCapicua (x:[]) = True
+myCapicua (x:y) = 
+    if x == myUltimo (y)
+        then myCapicua(myTodosMenosUltimo(y))
+        else False
