@@ -137,3 +137,11 @@ mySeCuelgaG x =
 
 mySeCuelgaH :: Int -> Bool
 mySeCuelgaH x = mySeCuelgaF (x) && mySeCuelgaG (x)
+
+-- Ej 15
+myFactorial :: Int -> Int
+myFactorial 0 = 1
+myFactorial x = 
+    if x > 0
+        then x * myFactorial (x - 1)
+        else x * myFactorial (x + 1)
