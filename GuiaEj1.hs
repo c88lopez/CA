@@ -79,15 +79,17 @@ myEsDivPor (x, y) =
             then False
             else myEsDivPor(x-y, y)
                         
-
 -- Ej 10
-myEsDivPorAlguno :: (Int, Int) -> Bool
-myEsDivPorAlguno (_, 1) = True
-myEsDivPorAlguno (0, _) = True
-myEsDivPorAlguno (x, y) = 
-    if x
+myEsDivisiblePor :: (Int, Int, Int) -> Bool
+myEsDivisiblePor (0, _, _) = True
+myEsDivisiblePor (_, 1, _) = True
+myEsDivisiblePor (x, y, z) = 
+    if y > z
+        then False
+        else if myEsDivPor (x, z)
+            then True
+            else myEsDivisiblePor (x, y, z-1)
 
 myEsPrimo :: Int -> Bool
 myEsPrimo 1 = False
-myEsPrimo x = not(myEsDivPorAlguno(2, x-1))
-    
+myEsPrimo x = not(myEsDivisiblePor(x, 2, x-1))
