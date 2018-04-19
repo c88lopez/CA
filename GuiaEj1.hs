@@ -93,3 +93,24 @@ myEsDivisiblePor (x, y, z) =
 myEsPrimo :: Int -> Bool
 myEsPrimo 1 = False
 myEsPrimo x = not(myEsDivisiblePor(x, 2, x-1))
+
+-- Ej 11
+-- En la carpeta
+
+-- Ej 12
+-- En la carpeta
+
+-- Ej 13
+myTerminaEnSiete :: (Int) -> Bool
+myTerminaEnSiete x = 
+    if x > 10
+        then myTerminaEnSiete (x-10)
+        else x == 7
+
+myCuantosSietes :: (Int, Int) -> Int
+myCuantosSietes (x, y) =
+    if x <= y
+        then if myTerminaEnSiete (y)
+            then 1 + myCuantosSietes(x, y-10)
+            else 0 + myCuantosSietes(x, y-1)
+        else 0
