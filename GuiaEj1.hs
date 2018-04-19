@@ -114,3 +114,26 @@ myCuantosSietes (x, y) =
             then 1 + myCuantosSietes(x, y-10)
             else 0 + myCuantosSietes(x, y-1)
         else 0
+
+-- Ej 14
+--- a
+mySeCuelgaMayor5 :: Int -> Bool
+mySeCuelgaMayor5 x = 
+    if x > 5
+        then mySeCuelgaMayor5 x
+        else True
+--- b
+mySeCuelgaF :: Int -> Bool
+mySeCuelgaF x =
+    if x > 25
+        then mySeCuelgaF x
+        else True
+
+mySeCuelgaG :: Int -> Bool
+mySeCuelgaG x =
+    if x < 5
+        then mySeCuelgaG x
+        else True
+
+mySeCuelgaH :: Int -> Bool
+mySeCuelgaH x = mySeCuelgaF (x) && mySeCuelgaG (x)
