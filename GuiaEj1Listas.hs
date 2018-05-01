@@ -93,3 +93,5 @@ myXorl (x, y) =
         ), 
         myIntXor(myUltimo(x), myUltimo(y)):[]
     )
+
+-- Ej 9
