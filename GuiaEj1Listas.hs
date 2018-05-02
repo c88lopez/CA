@@ -95,3 +95,34 @@ myXorl (x, y) =
     )
 
 -- Ej 9
+myPromedioSegundo :: [(String, Int, Char)] -> Int
+myPromedioSegundo [] = 0
+myPromedioSegundo ((_, edad, _):y) = edad + myPromedioSegundo(y)
+
+myAverageAge :: [(String, Int, Char)] -> Int
+myAverageAge [] = 0
+myAverageAge ((nombre,edad,sexo):y) = 
+    (edad + myPromedioSegundo(y)) `div` (1 + myLong y)
+
+-- Ej 10
+myEj10  :: [a] -> [a]
+myEj10 [] = []
+myEj10 (x:y) = x:(x:(myEj10(y)))
+
+-- Ej 11
+
+
+-- Ej 12
+-- Cada vez que se llama a func(y:z) se quita un elemento a la lista en proceso.
+-- Cuando la lista se queda sin elementos, queda [[], [...]], el cual no es un caso
+-- contemplado en la definición original.
+myEj12 :: [[a]] -> Int
+myEj12 [[]] = 6
+myEj12 ((x:y):z) = 2 + (myEj12(y:z))
+myEj12 ([]:z) = 2 + myEj12(z)
+
+-- Ej 13
+myFlat :: [[a]] -> [a]
+myFlat [] = []
+myFlat ((x:y):z) = x : myFlat(y:z)
+myFlat ([]:z) = myFlat(z)
