@@ -138,3 +138,9 @@ myLongLL :: [[a]] -> Int
 myLongLL [] = 0
 myLongLL ((x:y):z) = 1 + myLongLL(y:z)
 myLongLL ([]:z) = 0 + myLongLL(z)
+
+-- Ej 15
+myIntercalar :: ([a], [a]) -> [a]
+myIntercalar ([], y) = y
+myIntercalar (x, []) = x
+myIntercalar ((x:y), (u:v)) = x : [u] ++ myIntercalar(y, v)
