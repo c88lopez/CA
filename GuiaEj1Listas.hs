@@ -171,3 +171,28 @@ mySearchAndReplaceOne (search, replace, (x:y)) =
     if search == x
         then replace : y
         else x : mySearchAndReplaceOne(search, replace, y)
+
+-- Ej 18
+myDecHexMap :: Int -> Char
+myDecHexMap 0 = '0'
+myDecHexMap 1 = '1'
+myDecHexMap 2 = '2'
+myDecHexMap 3 = '3'
+myDecHexMap 4 = '4'
+myDecHexMap 5 = '5'
+myDecHexMap 6 = '6'
+myDecHexMap 7 = '7'
+myDecHexMap 8 = '8'
+myDecHexMap 9 = '9'
+myDecHexMap 10 = 'A'
+myDecHexMap 11 = 'B'
+myDecHexMap 12 = 'C'
+myDecHexMap 13 = 'D'
+myDecHexMap 14 = 'E'
+myDecHexMap 15 = 'F'
+
+myDecToHex :: Int -> String
+myDecToHex x =
+    if x < 16
+        then [myDecHexMap(x)]
+        else myDecToHex(x `div` 16) ++ [myDecHexMap(x `mod` 16)]
