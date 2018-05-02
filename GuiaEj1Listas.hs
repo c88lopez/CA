@@ -156,3 +156,18 @@ myMerge ((x:y), (u:v)) =
     if x < u
         then x : myMerge(y, u:v)
         else u : myMerge(x:y, v)
+
+-- Ej 17
+mySearchAndReplace :: (Int, Int, [Int]) -> [Int]
+mySearchAndReplace (_, _, []) = []
+mySearchAndReplace (search, replace, (x:y)) = 
+    if search == x
+        then replace : mySearchAndReplace(search, replace, y)
+        else x : mySearchAndReplace(search, replace, y)
+
+mySearchAndReplaceOne :: (Int, Int, [Int]) -> [Int]
+mySearchAndReplaceOne (_, _, []) = []
+mySearchAndReplaceOne (search, replace, (x:y)) = 
+    if search == x
+        then replace : y
+        else x : mySearchAndReplaceOne(search, replace, y)
