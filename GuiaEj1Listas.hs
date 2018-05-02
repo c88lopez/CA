@@ -127,8 +127,14 @@ myFlat :: [[a]] -> [a]
 myFlat [] = []
 
 -- Se crea una lista donde la cabeza es el primer elemento de la primer lista
--- y la cola el resto (cola ++ z).
+-- y la cola el resto (cola : z).
 myFlat ((x:y):z) = x : myFlat(y:z)
 
 -- Terminar con un listado significa procesar el siguiente
 myFlat ([]:z) = myFlat(z)
+
+-- Ej 14
+myLongLL :: [[a]] -> Int
+myLongLL [] = 0
+myLongLL ((x:y):z) = 1 + myLongLL(y:z)
+myLongLL ([]:z) = 0 + myLongLL(z)
