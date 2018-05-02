@@ -143,4 +143,16 @@ myLongLL ([]:z) = 0 + myLongLL(z)
 myIntercalar :: ([a], [a]) -> [a]
 myIntercalar ([], y) = y
 myIntercalar (x, []) = x
+
+-- Si bien `x` es una lista (y uno tiende a usar ++ para "sumar" listas), es 
+-- incorrecto usar `++` porque los argumentos deben ser del mismo tipo.
 myIntercalar ((x:y), (u:v)) = x : [u] ++ myIntercalar(y, v)
+
+-- Ej 16
+myMerge :: ([Int], [Int]) -> [Int]
+myMerge ([], x) = x
+myMerge (x, []) = x
+myMerge ((x:y), (u:v)) = 
+    if x < u
+        then x : myMerge(y, u:v)
+        else u : myMerge(x:y, v)
