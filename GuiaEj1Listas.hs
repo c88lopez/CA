@@ -196,3 +196,18 @@ myDecToHex x =
     if x < 16
         then [myDecHexMap(x)]
         else myDecToHex(x `div` 16) ++ [myDecHexMap(x `mod` 16)]
+
+-- Ej 19
+myContar :: (Int, [Int]) -> Int
+myContar (_, []) = 0
+myContar (x, (y:z)) = 
+    if x == y
+        then 1 + myContar(x, z)
+        else myContar(x, z)
+
+myMayoria :: [Int] -> Int
+myMayoria (x:[]) = 1
+myMayoria (x:y) = 
+    if myContar(x, y) >= myMayoria(y)
+        then x
+        else myMayoria(y)
