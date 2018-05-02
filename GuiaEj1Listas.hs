@@ -123,6 +123,12 @@ myEj12 ([]:z) = 2 + myEj12(z)
 
 -- Ej 13
 myFlat :: [[a]] -> [a]
+-- Condición final
 myFlat [] = []
+
+-- Se crea una lista donde la cabeza es el primer elemento de la primer lista
+-- y la cola el resto (cola ++ z).
 myFlat ((x:y):z) = x : myFlat(y:z)
+
+-- Terminar con un listado significa procesar el siguiente
 myFlat ([]:z) = myFlat(z)
